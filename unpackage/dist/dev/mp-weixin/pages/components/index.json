@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "登陆",
+  "usingComponents": {
+    "u-input": "../../node-modules/uview-plus/components/u-input/u-input",
+    "u-form-item": "../../node-modules/uview-plus/components/u-form-item/u-form-item",
+    "u-form": "../../node-modules/uview-plus/components/u-form/u-form"
+  }
+}

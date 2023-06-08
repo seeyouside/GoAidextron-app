@@ -1,0 +1,1 @@
+<view><view class="wx-head-mod" style="{{'height:' + f}}"><view class="wx-head-mod-nav" style="{{'height:' + d + ';' + ('top:' + e)}}"><view class="wx-head-mod-nav-content" style="{{'height:' + c + ';' + ('justify-content:' + 'center')}}"><view class="wx-head-mod-nav-content-mian" style="{{'line-height:' + b}}">{{a}}</view></view></view></view></view>

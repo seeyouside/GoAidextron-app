@@ -1,0 +1,58 @@
+
+.wx-head-mod {
+		box-sizing: border-box;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(-35deg, #613A19 0%, #6F4E2B 100%);
+}
+.wx-head-mod-nav {
+		box-sizing: border-box;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
+.wx-head-mod-nav-content {
+		box-sizing: border-box;
+		width: 100%;
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		position: relative;
+}
+ 
+	/* 文本区 */
+.wx-head-mod-nav-content-mian {
+		box-sizing: border-box;
+		height: 100%;
+		text-align: center;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		color:#000;
+		font-size:36rpx;
+}
+ 
+	/* 返回按钮 */
+.wx-head-mod-nav-content-back {
+		box-sizing: border-box;
+		width: 60rpx;
+		height: 100%;
+		/* background-color: aqua; */
+		position: absolute;
+		top: 0;
+		left: 32rpx;
+		display: flex;
+		align-items: center;
+		justify-content: left;
+}
+.wx-head-mod-nav-content-back-img {
+		box-sizing: border-box;
+}
+ 
+	
+ 
