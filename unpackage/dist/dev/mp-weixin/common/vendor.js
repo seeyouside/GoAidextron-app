@@ -3594,43 +3594,43 @@ function injectHook(type, hook, target = currentInstance, prepend = false) {
     warn(`${apiName} is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup().`);
   }
 }
-const createHook = (lifecycle) => (hook, target = currentInstance) => (
+const createHook$1 = (lifecycle) => (hook, target = currentInstance) => (
   // post-create lifecycle registrations are noops during SSR (except for serverPrefetch)
   (!isInSSRComponentSetup || lifecycle === "sp") && injectHook(lifecycle, (...args) => hook(...args), target)
 );
-const onBeforeMount = createHook(
+const onBeforeMount = createHook$1(
   "bm"
   /* LifecycleHooks.BEFORE_MOUNT */
 );
-const onMounted = createHook(
+const onMounted = createHook$1(
   "m"
   /* LifecycleHooks.MOUNTED */
 );
-const onBeforeUpdate = createHook(
+const onBeforeUpdate = createHook$1(
   "bu"
   /* LifecycleHooks.BEFORE_UPDATE */
 );
-const onUpdated = createHook(
+const onUpdated = createHook$1(
   "u"
   /* LifecycleHooks.UPDATED */
 );
-const onBeforeUnmount = createHook(
+const onBeforeUnmount = createHook$1(
   "bum"
   /* LifecycleHooks.BEFORE_UNMOUNT */
 );
-const onUnmounted = createHook(
+const onUnmounted = createHook$1(
   "um"
   /* LifecycleHooks.UNMOUNTED */
 );
-const onServerPrefetch = createHook(
+const onServerPrefetch = createHook$1(
   "sp"
   /* LifecycleHooks.SERVER_PREFETCH */
 );
-const onRenderTriggered = createHook(
+const onRenderTriggered = createHook$1(
   "rtg"
   /* LifecycleHooks.RENDER_TRIGGERED */
 );
-const onRenderTracked = createHook(
+const onRenderTracked = createHook$1(
   "rtc"
   /* LifecycleHooks.RENDER_TRACKED */
 );
@@ -5418,14 +5418,14 @@ function findComponentPublicInstance(mpComponents, id) {
   }
   return null;
 }
-function setTemplateRef({ r, f }, refValue, setupState) {
+function setTemplateRef({ r, f: f2 }, refValue, setupState) {
   if (isFunction(r)) {
     r(refValue, {});
   } else {
     const _isString = isString(r);
     const _isRef = isRef(r);
     if (_isString || _isRef) {
-      if (f) {
+      if (f2) {
         if (!_isRef) {
           return;
         }
@@ -5999,6 +5999,38 @@ function patchStopImmediatePropagation(e2, value) {
     return value;
   }
 }
+function vFor(source, renderItem) {
+  let ret;
+  if (isArray$1(source) || isString(source)) {
+    ret = new Array(source.length);
+    for (let i = 0, l = source.length; i < l; i++) {
+      ret[i] = renderItem(source[i], i, i);
+    }
+  } else if (typeof source === "number") {
+    if (!Number.isInteger(source)) {
+      warn(`The v-for range expect an integer value but got ${source}.`);
+      return [];
+    }
+    ret = new Array(source);
+    for (let i = 0; i < source; i++) {
+      ret[i] = renderItem(i + 1, i, i);
+    }
+  } else if (isObject$1(source)) {
+    if (source[Symbol.iterator]) {
+      ret = Array.from(source, (item, i) => renderItem(item, i, i));
+    } else {
+      const keys = Object.keys(source);
+      ret = new Array(keys.length);
+      for (let i = 0, l = keys.length; i < l; i++) {
+        const key = keys[i];
+        ret[i] = renderItem(source[key], key, i);
+      }
+    }
+  } else {
+    ret = [];
+  }
+  return ret;
+}
 function stringifyStyle(value) {
   if (isString(value)) {
     return value;
@@ -6016,6 +6048,7 @@ function stringify(styles) {
   return ret;
 }
 const o = (value, key) => vOn(value, key);
+const f = (source, renderItem) => vFor(source, renderItem);
 const s = (value) => stringifyStyle(value);
 const e = (target, ...sources) => extend(target, ...sources);
 const n = (value) => normalizeClass(value);
@@ -8225,8 +8258,8 @@ class Request {
   * @Function
   * @param {Request~setConfigCallback} f - 设置全局默认配置
   */
-  setConfig(f) {
-    this.config = f(this.config);
+  setConfig(f2) {
+    this.config = f2(this.config);
   }
   middleware(config2) {
     config2 = mergeConfig(this.config, config2);
@@ -10877,7 +10910,201 @@ const $u = {
   platform: platform$1
 };
 index$1.$u = $u;
-const props$2 = {
+const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
+  !isInSSRComponentSetup && injectHook(lifecycle, hook, target);
+};
+const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
+const button = {
+  props: {
+    lang: String,
+    sessionFrom: String,
+    sendMessageTitle: String,
+    sendMessagePath: String,
+    sendMessageImg: String,
+    showMessageCard: Boolean,
+    appParameter: String,
+    formType: String,
+    openType: String
+  }
+};
+const openType = {
+  props: {
+    openType: String
+  },
+  methods: {
+    onGetUserInfo(event) {
+      this.$emit("getuserinfo", event.detail);
+    },
+    onContact(event) {
+      this.$emit("contact", event.detail);
+    },
+    onGetPhoneNumber(event) {
+      this.$emit("getphonenumber", event.detail);
+    },
+    onError(event) {
+      this.$emit("error", event.detail);
+    },
+    onLaunchApp(event) {
+      this.$emit("launchapp", event.detail);
+    },
+    onOpenSetting(event) {
+      this.$emit("opensetting", event.detail);
+    }
+  }
+};
+const props$5 = {
+  props: {
+    // 是否细边框
+    hairline: {
+      type: Boolean,
+      default: defprops.button.hairline
+    },
+    // 按钮的预置样式，info，primary，error，warning，success
+    type: {
+      type: String,
+      default: defprops.button.type
+    },
+    // 按钮尺寸，large，normal，small，mini
+    size: {
+      type: String,
+      default: defprops.button.size
+    },
+    // 按钮形状，circle（两边为半圆），square（带圆角）
+    shape: {
+      type: String,
+      default: defprops.button.shape
+    },
+    // 按钮是否镂空
+    plain: {
+      type: Boolean,
+      default: defprops.button.plain
+    },
+    // 是否禁止状态
+    disabled: {
+      type: Boolean,
+      default: defprops.button.disabled
+    },
+    // 是否加载中
+    loading: {
+      type: Boolean,
+      default: defprops.button.loading
+    },
+    // 加载中提示文字
+    loadingText: {
+      type: [String, Number],
+      default: defprops.button.loadingText
+    },
+    // 加载状态图标类型
+    loadingMode: {
+      type: String,
+      default: defprops.button.loadingMode
+    },
+    // 加载图标大小
+    loadingSize: {
+      type: [String, Number],
+      default: defprops.button.loadingSize
+    },
+    // 开放能力，具体请看uniapp稳定关于button组件部分说明
+    // https://uniapp.dcloud.io/component/button
+    openType: {
+      type: String,
+      default: defprops.button.openType
+    },
+    // 用于 <form> 组件，点击分别会触发 <form> 组件的 submit/reset 事件
+    // 取值为submit（提交表单），reset（重置表单）
+    formType: {
+      type: String,
+      default: defprops.button.formType
+    },
+    // 打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效
+    // 只微信小程序、QQ小程序有效
+    appParameter: {
+      type: String,
+      default: defprops.button.appParameter
+    },
+    // 指定是否阻止本节点的祖先节点出现点击态，微信小程序有效
+    hoverStopPropagation: {
+      type: Boolean,
+      default: defprops.button.hoverStopPropagation
+    },
+    // 指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文。只微信小程序有效
+    lang: {
+      type: String,
+      default: defprops.button.lang
+    },
+    // 会话来源，open-type="contact"时有效。只微信小程序有效
+    sessionFrom: {
+      type: String,
+      default: defprops.button.sessionFrom
+    },
+    // 会话内消息卡片标题，open-type="contact"时有效
+    // 默认当前标题，只微信小程序有效
+    sendMessageTitle: {
+      type: String,
+      default: defprops.button.sendMessageTitle
+    },
+    // 会话内消息卡片点击跳转小程序路径，open-type="contact"时有效
+    // 默认当前分享路径，只微信小程序有效
+    sendMessagePath: {
+      type: String,
+      default: defprops.button.sendMessagePath
+    },
+    // 会话内消息卡片图片，open-type="contact"时有效
+    // 默认当前页面截图，只微信小程序有效
+    sendMessageImg: {
+      type: String,
+      default: defprops.button.sendMessageImg
+    },
+    // 是否显示会话内消息卡片，设置此参数为 true，用户进入客服会话会在右下角显示"可能要发送的小程序"提示，
+    // 用户点击后可以快速发送小程序消息，open-type="contact"时有效
+    showMessageCard: {
+      type: Boolean,
+      default: defprops.button.showMessageCard
+    },
+    // 额外传参参数，用于小程序的data-xxx属性，通过target.dataset.name获取
+    dataName: {
+      type: String,
+      default: defprops.button.dataName
+    },
+    // 节流，一定时间内只能触发一次
+    throttleTime: {
+      type: [String, Number],
+      default: defprops.button.throttleTime
+    },
+    // 按住后多久出现点击态，单位毫秒
+    hoverStartTime: {
+      type: [String, Number],
+      default: defprops.button.hoverStartTime
+    },
+    // 手指松开后点击态保留时间，单位毫秒
+    hoverStayTime: {
+      type: [String, Number],
+      default: defprops.button.hoverStayTime
+    },
+    // 按钮文字，之所以通过props传入，是因为slot传入的话
+    // nvue中无法控制文字的样式
+    text: {
+      type: [String, Number],
+      default: defprops.button.text
+    },
+    // 按钮图标
+    icon: {
+      type: String,
+      default: defprops.button.icon
+    },
+    // 按钮图标
+    iconColor: {
+      type: String,
+      default: defprops.button.icon
+    },
+    // 按钮颜色，支持传入linear-gradient渐变色
+    color: {
+      type: String,
+      default: defprops.button.color
+    }
+  }
+};
+const props$4 = {
   props: {
     // checkbox的名称
     name: {
@@ -10946,7 +11173,7 @@ const props$2 = {
     }
   }
 };
-const props$1 = {
+const props$3 = {
   props: {
     // 标识符
     name: {
@@ -11022,6 +11249,144 @@ const props$1 = {
     borderBottom: {
       type: Boolean,
       default: defprops.checkboxGroup.borderBottom
+    }
+  }
+};
+const props$2 = {
+  props: {
+    // 键盘弹起时，是否自动上推页面
+    adjustPosition: {
+      type: Boolean,
+      default: defprops.codeInput.adjustPosition
+    },
+    // 最大输入长度
+    maxlength: {
+      type: [String, Number],
+      default: defprops.codeInput.maxlength
+    },
+    // 是否用圆点填充
+    dot: {
+      type: Boolean,
+      default: defprops.codeInput.dot
+    },
+    // 显示模式，box-盒子模式，line-底部横线模式
+    mode: {
+      type: String,
+      default: defprops.codeInput.mode
+    },
+    // 是否细边框
+    hairline: {
+      type: Boolean,
+      default: defprops.codeInput.hairline
+    },
+    // 字符间的距离
+    space: {
+      type: [String, Number],
+      default: defprops.codeInput.space
+    },
+    // 预置值
+    value: {
+      type: [String, Number],
+      default: defprops.codeInput.value
+    },
+    // 是否自动获取焦点
+    focus: {
+      type: Boolean,
+      default: defprops.codeInput.focus
+    },
+    // 字体是否加粗
+    bold: {
+      type: Boolean,
+      default: defprops.codeInput.bold
+    },
+    // 字体颜色
+    color: {
+      type: String,
+      default: defprops.codeInput.color
+    },
+    // 字体大小
+    fontSize: {
+      type: [String, Number],
+      default: defprops.codeInput.fontSize
+    },
+    // 输入框的大小，宽等于高
+    size: {
+      type: [String, Number],
+      default: defprops.codeInput.size
+    },
+    // 是否隐藏原生键盘，如果想用自定义键盘的话，需设置此参数为true
+    disabledKeyboard: {
+      type: Boolean,
+      default: defprops.codeInput.disabledKeyboard
+    },
+    // 边框和线条颜色
+    borderColor: {
+      type: String,
+      default: defprops.codeInput.borderColor
+    },
+    // 是否禁止输入"."符号
+    disabledDot: {
+      type: Boolean,
+      default: defprops.codeInput.disabledDot
+    }
+  }
+};
+const props$1 = {
+  props: {
+    // 是否显示组件
+    show: {
+      type: Boolean,
+      default: defprops.loadingIcon.show
+    },
+    // 颜色
+    color: {
+      type: String,
+      default: defprops.loadingIcon.color
+    },
+    // 提示文字颜色
+    textColor: {
+      type: String,
+      default: defprops.loadingIcon.textColor
+    },
+    // 文字和图标是否垂直排列
+    vertical: {
+      type: Boolean,
+      default: defprops.loadingIcon.vertical
+    },
+    // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
+    mode: {
+      type: String,
+      default: defprops.loadingIcon.mode
+    },
+    // 图标大小，单位默认px
+    size: {
+      type: [String, Number],
+      default: defprops.loadingIcon.size
+    },
+    // 文字大小
+    textSize: {
+      type: [String, Number],
+      default: defprops.loadingIcon.textSize
+    },
+    // 文字内容
+    text: {
+      type: [String, Number],
+      default: defprops.loadingIcon.text
+    },
+    // 动画模式
+    timingFunction: {
+      type: String,
+      default: defprops.loadingIcon.timingFunction
+    },
+    // 动画执行周期时间
+    duration: {
+      type: [String, Number],
+      default: defprops.loadingIcon.duration
+    },
+    // mode=circle时的暗边颜色
+    inactiveColor: {
+      type: String,
+      default: defprops.loadingIcon.inactiveColor
     }
   }
 };
@@ -11330,11 +11695,13 @@ const props = {
 };
 exports.Pinia = Pinia;
 exports._export_sfc = _export_sfc;
+exports.button = button;
 exports.computed = computed;
 exports.createPinia = createPinia;
 exports.createSSRApp = createSSRApp;
 exports.defineStore = defineStore;
 exports.e = e;
+exports.f = f;
 exports.icons = icons;
 exports.index = index$1;
 exports.mapActions = mapActions;
@@ -11343,10 +11710,15 @@ exports.mixin = mixin;
 exports.mpMixin = mpMixin;
 exports.n = n;
 exports.o = o;
+exports.onLoad = onLoad;
+exports.openType = openType;
 exports.p = p;
-exports.props = props$2;
-exports.props$1 = props$1;
-exports.props$2 = props;
+exports.props = props$5;
+exports.props$1 = props$4;
+exports.props$2 = props$3;
+exports.props$3 = props$2;
+exports.props$4 = props$1;
+exports.props$5 = props;
 exports.resolveComponent = resolveComponent;
 exports.s = s;
 exports.t = t;

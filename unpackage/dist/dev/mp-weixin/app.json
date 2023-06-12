@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/components/login/index",
+    "pages/components/login/sendPages",
     "pages/classify/index",
     "pages/my/index",
     "pages/car/index"

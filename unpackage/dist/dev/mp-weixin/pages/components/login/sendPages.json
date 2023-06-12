@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "验证",
+  "usingComponents": {
+    "u-code-input": "../../../node-modules/uview-plus/components/u-code-input/u-code-input",
+    "u-button": "../../../node-modules/uview-plus/components/u-button/u-button"
+  }
+}

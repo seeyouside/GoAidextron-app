@@ -5,6 +5,7 @@ const common_systemInfo = require("./common/system-info.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/components/login/index.js";
+  "./pages/components/login/sendPages.js";
   "./pages/classify/index.js";
   "./pages/my/index.js";
   "./pages/car/index.js";

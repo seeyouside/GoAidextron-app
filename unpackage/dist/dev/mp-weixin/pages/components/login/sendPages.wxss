@@ -23,15 +23,27 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-view.data-v-bbd9963c, scroll-view.data-v-bbd9963c, swiper-item.data-v-bbd9963c {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  flex-grow: 0;
-  flex-basis: auto;
-  align-items: stretch;
-  align-content: flex-start;
+.content.data-v-b0e224f3 {
+  padding: 16rpx;
 }
-.u-line.data-v-bbd9963c {
-  vertical-align: middle;
+.content .title.data-v-b0e224f3 {
+  font-size: 44rpx;
+  font-weight: 600;
+  margin: 20rpx 0 120rpx 0;
+}
+.content .code.data-v-b0e224f3 {
+  display: flex;
+  justify-content: center;
+}
+.content .login_btn.data-v-b0e224f3 {
+  width: 90%;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.data-v-b0e224f3 .u-code-input {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 90% !important;
 }

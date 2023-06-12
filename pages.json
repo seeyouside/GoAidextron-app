@@ -31,6 +31,14 @@
 		
 		},
 		{
+			"path":"pages/components/login/sendPages",
+			"style": {
+				"navigationBarTitleText": "验证"
+			}
+		
+		
+		},
+		{
 			"path": "pages/classify/index",
 			"style": {
 				"navigationBarTitleText": "uni-app"

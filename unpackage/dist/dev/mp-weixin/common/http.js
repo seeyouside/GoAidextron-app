@@ -3,7 +3,7 @@ const common_vendor = require("./vendor.js");
 const myRequest = (options) => {
   return new Promise((resolve, reject) => {
     common_vendor.index.request({
-      url: "https://consult-api.itheima.net" + options.url,
+      url: "https://natu.zjqichuang.com/" + options.url,
       //接口地址：前缀+方法中传入的地址
       method: options.method || "GET",
       //请求方法：传入的方法或者默认是“GET”

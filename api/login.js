@@ -2,7 +2,7 @@ import {myRequest} from '../common/http.js'
  
 export function login (data) {  //登录密码
 	return myRequest({
-		url:'/login/password',
+		url:'/shopapi/shop/mnpLogin',
 		method:'post',
 		data
 	})
@@ -10,14 +10,14 @@ export function login (data) {  //登录密码
 
 export function code (data) {  //获取验证码
 	return myRequest({
-		url:'/code',
-		method:'get',
+		url:'/shopapi/sms/sendCode',
+		method:'post',
 		data
 	})
 }
 export function loginCode (data) {  //验证码登陆
 	return myRequest({
-		url:'/login',
+		url:'/shopapi/shop/mobileLogin',
 		method:'post',
 		data
 	})
