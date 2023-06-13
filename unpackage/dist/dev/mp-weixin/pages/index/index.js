@@ -31,7 +31,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
-          title: "首页"
+          leftTitle: "首页"
         }),
         b: common_vendor.o(login)
       };

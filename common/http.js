@@ -10,7 +10,7 @@ export const myRequest = (options) => {
 			//     'Authorization ': window.localStorage.getItem('token') //自定义请求头信息
 			// },
 			success: (res) => {
-				//返回的数据（不固定，看后端接口，这里是做了一个判断，如果不为true，用uni.showToast方法提示获取数据失败)
+				// 返回的数据（不固定，看后端接口，这里是做了一个判断，如果不为true，用uni.showToast方法提示获取数据失败)
 				// if (res.data.success != true) {
 				// 	return uni.showToast({
 				// 		title: '获取数据失败',

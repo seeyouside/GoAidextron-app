@@ -2,18 +2,21 @@
 	<!-- <view @click="getMapLocation">
 		{{address}}
 	</view> -->
-	<MyHeader title="首页"/>
-	<view class="" style="margin-top: 150rpx;" @click="login">
+	<MyHeader leftTitle='首页'>
+		
+	</MyHeader>
+	<view class="" style="" @click="login">
 		登陆
 	</view>
 </template>
 <script setup>
-	import MyHeader from "../../components/MyHeader.vue"
 	import {
 		ref,
 		computed,
 		watch
 	} from 'vue'
+	import MyHeader from "../../components/MyHeader.vue"
+	
 	import {
 		getMapLocation
 	} from "../../common/common.js"
@@ -32,6 +35,9 @@
 	const address = computed(() => {
 		return store.address
 	})
+	function searchEvent(e){
+		console.log('searchEvent',e);
+	}
 	defineExpose({
 		getMapLocation,
 		login

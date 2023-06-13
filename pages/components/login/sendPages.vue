@@ -28,7 +28,8 @@
 	onLoad(async (e) => {
 		if (e.code) {
 			const res = await code({
-				mobile: e.code
+				mobile: e.code,
+				scene:"YZMDL"
 			})
 			console.log(res);
 		}

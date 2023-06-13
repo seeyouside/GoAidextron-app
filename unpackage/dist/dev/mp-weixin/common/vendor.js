@@ -10952,7 +10952,7 @@ const openType = {
     }
   }
 };
-const props$5 = {
+const props$6 = {
   props: {
     // 是否细边框
     hairline: {
@@ -11104,7 +11104,7 @@ const props$5 = {
     }
   }
 };
-const props$4 = {
+const props$5 = {
   props: {
     // checkbox的名称
     name: {
@@ -11173,7 +11173,7 @@ const props$4 = {
     }
   }
 };
-const props$3 = {
+const props$4 = {
   props: {
     // 标识符
     name: {
@@ -11252,7 +11252,7 @@ const props$3 = {
     }
   }
 };
-const props$2 = {
+const props$3 = {
   props: {
     // 键盘弹起时，是否自动上推页面
     adjustPosition: {
@@ -11328,65 +11328,6 @@ const props$2 = {
     disabledDot: {
       type: Boolean,
       default: defprops.codeInput.disabledDot
-    }
-  }
-};
-const props$1 = {
-  props: {
-    // 是否显示组件
-    show: {
-      type: Boolean,
-      default: defprops.loadingIcon.show
-    },
-    // 颜色
-    color: {
-      type: String,
-      default: defprops.loadingIcon.color
-    },
-    // 提示文字颜色
-    textColor: {
-      type: String,
-      default: defprops.loadingIcon.textColor
-    },
-    // 文字和图标是否垂直排列
-    vertical: {
-      type: Boolean,
-      default: defprops.loadingIcon.vertical
-    },
-    // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
-    mode: {
-      type: String,
-      default: defprops.loadingIcon.mode
-    },
-    // 图标大小，单位默认px
-    size: {
-      type: [String, Number],
-      default: defprops.loadingIcon.size
-    },
-    // 文字大小
-    textSize: {
-      type: [String, Number],
-      default: defprops.loadingIcon.textSize
-    },
-    // 文字内容
-    text: {
-      type: [String, Number],
-      default: defprops.loadingIcon.text
-    },
-    // 动画模式
-    timingFunction: {
-      type: String,
-      default: defprops.loadingIcon.timingFunction
-    },
-    // 动画执行周期时间
-    duration: {
-      type: [String, Number],
-      default: defprops.loadingIcon.duration
-    },
-    // mode=circle时的暗边颜色
-    inactiveColor: {
-      type: String,
-      default: defprops.loadingIcon.inactiveColor
     }
   }
 };
@@ -11604,7 +11545,7 @@ const icons = {
   "uicon-zh": "",
   "uicon-en": ""
 };
-const props = {
+const props$2 = {
   props: {
     // 图标类名
     name: {
@@ -11693,6 +11634,187 @@ const props = {
     }
   }
 };
+const props$1 = {
+  props: {
+    // 搜索框形状，round-圆形，square-方形
+    shape: {
+      type: String,
+      default: defprops.search.shape
+    },
+    // 搜索框背景色，默认值#f2f2f2
+    bgColor: {
+      type: String,
+      default: defprops.search.bgColor
+    },
+    // 占位提示文字
+    placeholder: {
+      type: String,
+      default: defprops.search.placeholder
+    },
+    // 是否启用清除控件
+    clearabled: {
+      type: Boolean,
+      default: defprops.search.clearabled
+    },
+    // 是否自动聚焦
+    focus: {
+      type: Boolean,
+      default: defprops.search.focus
+    },
+    // 是否在搜索框右侧显示取消按钮
+    showAction: {
+      type: Boolean,
+      default: defprops.search.showAction
+    },
+    // 右边控件的样式
+    actionStyle: {
+      type: Object,
+      default: defprops.search.actionStyle
+    },
+    // 取消按钮文字
+    actionText: {
+      type: String,
+      default: defprops.search.actionText
+    },
+    // 输入框内容对齐方式，可选值为 left|center|right
+    inputAlign: {
+      type: String,
+      default: defprops.search.inputAlign
+    },
+    // input输入框的样式，可以定义文字颜色，大小等，对象形式
+    inputStyle: {
+      type: Object,
+      default: defprops.search.inputStyle
+    },
+    // 是否启用输入框
+    disabled: {
+      type: Boolean,
+      default: defprops.search.disabled
+    },
+    // 边框颜色
+    borderColor: {
+      type: String,
+      default: defprops.search.borderColor
+    },
+    // 搜索图标的颜色，默认同输入框字体颜色
+    searchIconColor: {
+      type: String,
+      default: defprops.search.searchIconColor
+    },
+    // 输入框字体颜色
+    color: {
+      type: String,
+      default: defprops.search.color
+    },
+    // placeholder的颜色
+    placeholderColor: {
+      type: String,
+      default: defprops.search.placeholderColor
+    },
+    // 左边输入框的图标，可以为uView图标名称或图片路径
+    searchIcon: {
+      type: String,
+      default: defprops.search.searchIcon
+    },
+    searchIconSize: {
+      type: [Number, String],
+      default: defprops.search.searchIconSize
+    },
+    // 组件与其他上下左右元素之间的距离，带单位的字符串形式，如"30px"、"30px 20px"等写法
+    margin: {
+      type: String,
+      default: defprops.search.margin
+    },
+    // 开启showAction时，是否在input获取焦点时才显示
+    animation: {
+      type: Boolean,
+      default: defprops.search.animation
+    },
+    // 输入框的初始化内容
+    modelValue: {
+      type: String,
+      default: defprops.search.value
+    },
+    value: {
+      type: String,
+      default: defprops.search.value
+    },
+    // 输入框最大能输入的长度，-1为不限制长度(来自uniapp文档)
+    maxlength: {
+      type: [String, Number],
+      default: defprops.search.maxlength
+    },
+    // 搜索框高度，单位px
+    height: {
+      type: [String, Number],
+      default: defprops.search.height
+    },
+    // 搜索框左侧文本
+    label: {
+      type: [String, Number, null],
+      default: defprops.search.label
+    }
+  }
+};
+const props = {
+  props: {
+    // 是否显示组件
+    show: {
+      type: Boolean,
+      default: defprops.loadingIcon.show
+    },
+    // 颜色
+    color: {
+      type: String,
+      default: defprops.loadingIcon.color
+    },
+    // 提示文字颜色
+    textColor: {
+      type: String,
+      default: defprops.loadingIcon.textColor
+    },
+    // 文字和图标是否垂直排列
+    vertical: {
+      type: Boolean,
+      default: defprops.loadingIcon.vertical
+    },
+    // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
+    mode: {
+      type: String,
+      default: defprops.loadingIcon.mode
+    },
+    // 图标大小，单位默认px
+    size: {
+      type: [String, Number],
+      default: defprops.loadingIcon.size
+    },
+    // 文字大小
+    textSize: {
+      type: [String, Number],
+      default: defprops.loadingIcon.textSize
+    },
+    // 文字内容
+    text: {
+      type: [String, Number],
+      default: defprops.loadingIcon.text
+    },
+    // 动画模式
+    timingFunction: {
+      type: String,
+      default: defprops.loadingIcon.timingFunction
+    },
+    // 动画执行周期时间
+    duration: {
+      type: [String, Number],
+      default: defprops.loadingIcon.duration
+    },
+    // mode=circle时的暗边颜色
+    inactiveColor: {
+      type: String,
+      default: defprops.loadingIcon.inactiveColor
+    }
+  }
+};
 exports.Pinia = Pinia;
 exports._export_sfc = _export_sfc;
 exports.button = button;
@@ -11713,12 +11835,13 @@ exports.o = o;
 exports.onLoad = onLoad;
 exports.openType = openType;
 exports.p = p;
-exports.props = props$5;
-exports.props$1 = props$4;
-exports.props$2 = props$3;
-exports.props$3 = props$2;
-exports.props$4 = props$1;
-exports.props$5 = props;
+exports.props = props$6;
+exports.props$1 = props$5;
+exports.props$2 = props$4;
+exports.props$3 = props$3;
+exports.props$4 = props$2;
+exports.props$5 = props$1;
+exports.props$6 = props;
 exports.resolveComponent = resolveComponent;
 exports.s = s;
 exports.t = t;

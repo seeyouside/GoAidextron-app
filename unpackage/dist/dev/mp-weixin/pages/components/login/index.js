@@ -7,7 +7,7 @@ const _sfc_main = {
   data() {
     return {
       // 复选框数据
-      checkboxValue1: [],
+      checkData: false,
       code: "13042774519"
     };
   },
@@ -18,6 +18,13 @@ const _sfc_main = {
     ...common_vendor.mapActions(store_index.GlobalStore, ["login"]),
     // 验证手机号 传递手机号并跳转短信验证码界面
     handleSubmit() {
+      if (!this.checkData) {
+        common_vendor.index.showToast({
+          title: "请先阅读协议",
+          icon: "error"
+        });
+        return;
+      }
       const that = this;
       const phoneRegex = /^1[3-9]\d{9}$/;
       if (phoneRegex.test(that.code)) {
@@ -32,7 +39,8 @@ const _sfc_main = {
     },
     // 复选框切换
     checkboxChange(n) {
-      console.log("change", n);
+      this.checkData = !this.checkData;
+      console.log(this.checkData);
     }
   },
   onShow() {
@@ -66,10 +74,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       size: "26rpx"
     }),
     f: common_vendor.o($options.checkboxChange),
-    g: common_vendor.o(($event) => $data.checkboxValue1 = $event),
-    h: common_vendor.p({
-      placement: "column",
-      modelValue: $data.checkboxValue1
+    g: common_vendor.p({
+      placement: "column"
     })
   };
 }

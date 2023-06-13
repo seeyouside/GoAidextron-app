@@ -20,7 +20,8 @@ const _sfc_main = {
     common_vendor.onLoad(async (e) => {
       if (e.code) {
         const res = await api_login.code({
-          mobile: e.code
+          mobile: e.code,
+          scene: "YZMDL"
         });
         console.log(res);
       }

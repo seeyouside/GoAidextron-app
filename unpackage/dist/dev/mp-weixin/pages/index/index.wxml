@@ -1,1 +1,1 @@
-<my-header wx:if="{{a}}" u-i="5f4ba746-0" bind:__l="__l" u-p="{{a}}"/><view class="" style="margin-top:150rpx" bindtap="{{b}}"> 登陆 </view>
+<my-header wx:if="{{a}}" u-i="5f4ba746-0" bind:__l="__l" u-p="{{a}}"></my-header><view class="" style="" bindtap="{{b}}"> 登陆 </view>
