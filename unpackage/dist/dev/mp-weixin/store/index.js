@@ -16,13 +16,14 @@ const GlobalStore = common_vendor.defineStore({
       this.address = data;
     },
     // 密码登陆
-    async login(data) {
-      const res = await api_login.login(data);
+    async loginWx(data) {
+      const res = await api_login.loginWx(data);
       this.token = res.data.data.token;
     },
     // 验证码登陆
     async loginCode(data) {
       const res = await api_login.loginCode(data);
+      console.log("login>>>>>>>>>", res);
       this.token = res.data.data.token;
     }
   }

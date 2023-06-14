@@ -3,19 +3,28 @@
 		{{address}}
 	</view> -->
 	<MyHeader leftTitle='首页'>
-		
+
 	</MyHeader>
+
+	<MyUploadImg numberData = '3'></MyUploadImg>
+
 	<view class="" style="" @click="login">
 		登陆
 	</view>
 </template>
 <script setup>
+	
 	import {
 		ref,
 		computed,
 		watch
 	} from 'vue'
+	
+	// 导入组件 - start
 	import MyHeader from "../../components/MyHeader.vue"
+	import MyUploadImg from "../../components/MyUploadImg.vue"
+	// 导入组件 -end
+
 	
 	import {
 		getMapLocation
@@ -23,9 +32,10 @@
 	import {
 		GlobalStore
 	} from "../../store/index.js"
-	function login(){
+
+	function login() {
 		uni.navigateTo({
-			url:'../components/login/index'
+			url: '../components/login/index'
 		})
 	}
 	const store = GlobalStore()
@@ -35,8 +45,9 @@
 	const address = computed(() => {
 		return store.address
 	})
-	function searchEvent(e){
-		console.log('searchEvent',e);
+
+	function searchEvent(e) {
+		console.log('searchEvent', e);
 	}
 	defineExpose({
 		getMapLocation,

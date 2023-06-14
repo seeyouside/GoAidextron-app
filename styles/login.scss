@@ -1,0 +1,76 @@
+page{
+	background-color: #f6f7f8;
+}
+
+.con{
+	uni-button:after {
+		border: none !important;
+	}
+	padding: 0 32rpx;
+	.part1{
+		padding-top: 68rpx;
+		font-size: 48rpx;
+		color: #333333;
+	}
+	.part2{
+		margin-top: 128rpx;
+		/deep/.uni-input-wrapper{
+			font-size: 32rpx;
+		}
+		/deep/.uni-input-input{
+			border-bottom: 1px solid #D8D8D8;
+		}
+	}
+	.part3{
+		margin-top: 128rpx;
+		font-size: 24rpx;
+		color: #989898;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.part3_bt{
+			width: 654rpx;
+			height: 88rpx;
+			background-image: linear-gradient(270deg, #FDE100 0%, #FABF00 100%);
+			border-radius: 44rpx;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 32rpx;
+			color: #FFFFFF;
+			margin-bottom: 32rpx;
+		}
+		.tiaokuan{
+			color: #FABF00;
+		}
+		.nonow{
+			margin-top: 32rpx;
+			font-size: 28rpx;
+			color: #D8D8D8;
+		}
+	}
+	.part4{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		bottom: 58rpx;
+		width: 400rpx;
+		left: 50%;
+		transform: translate(-50%,0);
+		.part4_img{
+			width: 96rpx;
+			height: 96rpx;
+		}
+		.part4_t1{
+			font-size: 24rpx;
+			color: #646566;
+			margin-top: 16rpx;
+		}
+		.part4_t2{
+			font-size: 28rpx;
+			color: #D8D8D8;
+			margin-top: 64rpx;
+		}
+	}
+}

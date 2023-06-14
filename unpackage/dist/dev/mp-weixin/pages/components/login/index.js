@@ -15,7 +15,7 @@ const _sfc_main = {
     ...common_vendor.mapState(store_index.GlobalStore, ["token"])
   },
   methods: {
-    ...common_vendor.mapActions(store_index.GlobalStore, ["login"]),
+    ...common_vendor.mapActions(store_index.GlobalStore, ["loginWx"]),
     // 验证手机号 传递手机号并跳转短信验证码界面
     handleSubmit() {
       if (!this.checkData) {
@@ -41,6 +41,19 @@ const _sfc_main = {
     checkboxChange(n) {
       this.checkData = !this.checkData;
       console.log(this.checkData);
+    },
+    // 微信登陆
+    loginwx() {
+      let that = this;
+      common_vendor.index.login({
+        provider: "weixin",
+        success: async (LoginInfo) => {
+          console.log("login", LoginInfo);
+          that.loginWx({
+            code: LoginInfo.code
+          });
+        }
+      });
     }
   },
   onShow() {
@@ -76,7 +89,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     f: common_vendor.o($options.checkboxChange),
     g: common_vendor.p({
       placement: "column"
-    })
+    }),
+    h: common_vendor.o((...args) => $options.loginwx && $options.loginwx(...args))
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-f9c7640e"], ["__file", "D:/ypgz/template/templatevuePlus/pages/components/login/index.vue"]]);

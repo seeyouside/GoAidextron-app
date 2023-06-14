@@ -23,8 +23,12 @@
 		</view>
 
 		<!-- 微信登陆 -->
-		<view class="WeChatLogin" >
+		<view class="WeChatLogin" @click="loginwx">
 			<image src="../../../static/logo.png" mode="aspectFit"></image>
+
+		</view>
+		<view class="WeChatLoginText">
+			微信登陆
 		</view>
 	</view>
 </template>
@@ -50,7 +54,7 @@
 			...mapState(GlobalStore, ["token"])
 		},
 		methods: {
-			...mapActions(GlobalStore, ['login']),
+			...mapActions(GlobalStore, ['loginWx']),
 			// 验证手机号 传递手机号并跳转短信验证码界面
 			handleSubmit() {
 				if (!this.checkData) {
@@ -77,6 +81,20 @@
 			checkboxChange(n) {
 				this.checkData = !this.checkData
 				console.log(this.checkData);
+			},
+			// 微信登陆
+			loginwx() {
+				let that = this
+				uni.login({
+					provider: 'weixin',
+					success: async (LoginInfo) => {
+						console.log('login',LoginInfo);
+						that.loginWx({
+							code:LoginInfo.code
+						})
+						
+					}
+				})
 			}
 		},
 		onShow() {},
@@ -89,14 +107,25 @@
 		left: 50%;
 		bottom: 30%;
 		transform: translateX(-50%);
-		width: 120rpx;
-		height: 120rpx;
+		width: 80rpx;
+		height: 80rpx;
 		border-radius: 50%;
 		overflow: hidden;
-		image{
+
+		image {
 			width: 100%;
 			height: 100%;
 		}
+	}
+
+	.WeChatLoginText {
+		position: absolute;
+		left: 50%;
+		bottom: 26%;
+		transform: translateX(-50%);
+		text-align: center;
+		font-size: 24rpx;
+		color: #cccccc;
 	}
 
 	.title {

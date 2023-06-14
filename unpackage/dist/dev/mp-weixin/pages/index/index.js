@@ -6,9 +6,10 @@ require("../../common/qqmap-wx-jssdk.min.js");
 require("../../api/login.js");
 require("../../common/http.js");
 if (!Math) {
-  MyHeader();
+  (MyHeader + MyUploadImg)();
 }
 const MyHeader = () => "../../components/MyHeader.js";
+const MyUploadImg = () => "../../components/MyUploadImg.js";
 const _sfc_main = {
   __name: "index",
   setup(__props, { expose }) {
@@ -33,7 +34,10 @@ const _sfc_main = {
         a: common_vendor.p({
           leftTitle: "首页"
         }),
-        b: common_vendor.o(login)
+        b: common_vendor.p({
+          numberData: "3"
+        }),
+        c: common_vendor.o(login)
       };
     };
   }

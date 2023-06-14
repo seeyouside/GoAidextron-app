@@ -2,7 +2,7 @@ import {
 	defineStore
 } from 'pinia'
 import {
-	login,
+	loginWx,
 	loginCode
 } from '../api/login.js'
 // defineStore 调用后返回一个函数，调用该函数获得 Store 实体
@@ -21,15 +21,15 @@ export const GlobalStore = defineStore({
 			this.address = data
 		},
 		// 密码登陆
-		async login(data) {
-			const res = await login(data)
+		async loginWx(data) {
+			const res = await loginWx(data)
 			// console.log('login>>>>>>>>>',res.data.data.token);
 			this.token = res.data.data.token
 		},
 		// 验证码登陆
 		async loginCode(data) {
 			const res = await loginCode(data)
-			// console.log('login>>>>>>>>>',res.data.data.token);
+			console.log('login>>>>>>>>>',res);
 			this.token = res.data.data.token
 		}
 	},

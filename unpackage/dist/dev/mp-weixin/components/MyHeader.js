@@ -153,7 +153,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     v: $data.customHeight + "rpx",
     w: $data.navigationBarHeight + "rpx",
     x: $data.statusBarHeight + "rpx",
-    y: $data.navHeight + "rpx"
+    y: $data.navHeight + "rpx",
+    z: $data.navHeight + "rpx"
   });
 }
 const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/ypgz/template/templatevuePlus/components/MyHeader.vue"]]);

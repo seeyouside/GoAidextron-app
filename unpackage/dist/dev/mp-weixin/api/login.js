@@ -1,12 +1,5 @@
 "use strict";
 const common_http = require("../common/http.js");
-function login(data) {
-  return common_http.myRequest({
-    url: "/shopapi/shop/mnpLogin",
-    method: "post",
-    data
-  });
-}
 function code(data) {
   return common_http.myRequest({
     url: "/shopapi/sms/sendCode",
@@ -21,6 +14,13 @@ function loginCode(data) {
     data
   });
 }
+function loginWx(data) {
+  return common_http.myRequest({
+    url: "/api/login/mnpLogin",
+    method: "post",
+    data
+  });
+}
 exports.code = code;
-exports.login = login;
 exports.loginCode = loginCode;
+exports.loginWx = loginWx;

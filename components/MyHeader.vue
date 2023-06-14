@@ -32,7 +32,9 @@
 
 			</view>
 		</view>
-
+		<view class="" :style="{height:navHeight+'rpx'}">
+			
+		</view>
 	</view>
 </template>
 
