@@ -35,7 +35,7 @@ const _sfc_main = {
           leftTitle: "首页"
         }),
         b: common_vendor.p({
-          numberData: "3"
+          numberData: "9"
         }),
         c: common_vendor.o(login)
       };

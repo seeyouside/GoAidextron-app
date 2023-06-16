@@ -6,7 +6,7 @@
 
 	</MyHeader>
 
-	<MyUploadImg numberData = '3'></MyUploadImg>
+	<MyUploadImg numberData = '9'></MyUploadImg>
 
 	<view class="" style="" @click="login">
 		登陆
