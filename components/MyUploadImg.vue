@@ -35,21 +35,7 @@
 		getCurrentInstance,
 		
 	} from "vue"
-	
-	const query = uni.createSelectorQuery();
-		query.select('#myView').boundingClientRect(data => {
-			console.log("得到布局位置信息：",data);
-	}).exec();
-	// 获取dom节点
-	const inputRef = ref()
-	onReady(() => {
-		console.log(inputRef);
-		
-	}) 
-	
-	
-	
-	
+
 	
 	const props = defineProps({
 		numberData: {

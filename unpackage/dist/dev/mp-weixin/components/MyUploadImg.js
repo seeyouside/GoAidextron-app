@@ -23,14 +23,6 @@ const _sfc_main = {
   },
   setup(__props, { expose }) {
     const props = __props;
-    const query = common_vendor.index.createSelectorQuery();
-    query.select("#myView").boundingClientRect((data) => {
-      console.log("得到布局位置信息：", data);
-    }).exec();
-    const inputRef = common_vendor.ref();
-    onReady(() => {
-      console.log(inputRef);
-    });
     let isainmtion = common_vendor.ref(false);
     let longressIndex = common_vendor.ref();
     function longpressEvent(index) {
