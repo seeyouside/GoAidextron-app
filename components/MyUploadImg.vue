@@ -1,10 +1,9 @@
 <template>
-	<view class="uploadImgBox" @touchmove.stop="uploadImgBoxMousemove" @touchend="uploadImgBoxTouchend"
-		@longtap="uploadImgBoxClick">
+	<view class="uploadImgBox" @touchend="uploadImgBoxTouchend" @longtap="uploadImgBoxClick">
 		<view class="scollview">
-			<view class="item" @touchend="isainmtion = false" @longpress.stop="longpressEvent(index)"
-				:class="[longressIndex == index && isainmtion ? 'imgAnimation': '']" :style="{top:maxH,left:maxW}"
-				v-for="(item,index) in imageArr" :key="index" @click="uploadImgEvent">
+			<view class="item" @touchmove.stop="uploadImgBoxMousemove" @longpress.stop="longpressEvent(index)"
+				@touchend="touchendEvent" :class="[longressIndex == index && isainmtion ? 'imgAnimation': '']"
+				:style="{top:maxH,left:maxW}" v-for="(item,index) in imageArr" :key="index" @click="uploadImgEvent">
 				<image :src="item" mode=""></image>
 				<!-- <view class="itemprop"  v-if='item != "../static/logo.png"'>
 					<view class="text"  @click.stop="deleteImg(index)">
@@ -12,18 +11,21 @@
 					</view>
 				</view> -->
 			</view>
+			<view v-if="isainmtion" class="item">
+				帅气
+			</view>
 		</view>
-		<view :class="[isShopBgc?'':'show']"  @touchstart="touchstartTrash" class="prop">
-			<u-icon name="trash-fill" color="#ff0000" size="36"></u-icon>
+		<view :class="[isShopBgc?'':'show']" @touchstart="touchstartTrash" class="prop">
+			<u-icon name="trash-fill" :color="colorIcon" size="36"></u-icon>
 			<view class="">
 				<!-- 拖入删除 -->
 				{{trashText}}
 			</view>
 		</view>
 	</view>
-	
-	<view class="myView" ref="inputRef" id="myView">
-		
+	<view class="aaa"
+		style=" width: 10rpx; height: 10rpx; background-color: pink; position: absolute; top: 610px; left:120px;">
+
 	</view>
 </template>
 <script setup>
@@ -33,10 +35,22 @@
 		defineProps,
 		onMounted,
 		getCurrentInstance,
-		
+
+
 	} from "vue"
 
-	
+	//实例化getCurrentInstance
+	let _this = getCurrentInstance();
+	let propData = null
+	// 获取某个元素的高度
+	let getPropety = () => {
+		const query = uni.createSelectorQuery().in(_this);
+		query.select('.prop').boundingClientRect(data => {
+			let newdata = JSON.parse(JSON.stringify(data))
+			console.log(newdata);
+			propData = newdata
+		}).exec();
+	}
 	const props = defineProps({
 		numberData: {
 			type: Number,
@@ -53,6 +67,7 @@
 		longressIndex.value = index
 		isainmtion.value = !isainmtion.value
 		console.log(longressIndex, 'isainmtion', isainmtion.value);
+		getPropety()
 	}
 	// 图片上传
 	import {
@@ -110,21 +125,42 @@
 	/**
 	 * 获取uploadImgBox鼠标位置
 	 * **/
-
 	const uploadImgBoxMousemove = (e) => {
 		// mousemoveData.clickHandle(e.changedTouches[0])
 		// console.log(e);
+		if (!propData) {
+			return
+		}
 		maxW.value = e.changedTouches[0].pageX - 40 + "px"
 		maxH.value = e.changedTouches[0].pageY - 40 + "px"
+		if ((e.changedTouches[0].pageX - 40 > propData.left && e.changedTouches[0].pageY > propData.top) && (e
+				.changedTouches[0].pageX - 40 < propData.right && e.changedTouches[0].pageY < propData.bottom)) {
+			touchstartTrash()
+		} else {
+			touchstartTrash(1)
+		}
 	}
-	
+	// 触摸盒子松开后的事件
+	const touchendEvent = (e) => {
+		if (!propData) {
+			return
+		}
+
+		if ((e.changedTouches[0].pageX - 40 > propData.left && e.changedTouches[0].pageY > propData.top) && (e
+				.changedTouches[0].pageX - 40 < propData.right && e.changedTouches[0].pageY < propData.bottom)) {
+			deleteImg()
+		}
+		isainmtion.value = false
+		isShopBgc.value = false
+	}
+	// 点击盒子超过350ms秒触发
 	const uploadImgBoxClick = (e) => {
 
 		maxW.value = e.changedTouches[0].pageX - 40 + "px"
 		maxH.value = e.changedTouches[0].pageY - 40 + "px"
 		// 弹出删除窗口
 		isShopBgc.value = true
-		
+
 
 	}
 
@@ -132,9 +168,15 @@
 		isShopBgc.value = false
 	}
 	let trashText = ref('拖入图标删除')
+	let colorIcon = ref('#000')
 	const touchstartTrash = e => {
-		console.log("touchstartTrash", e);
+		if (e == 1) {
+			trashText.value = '拖入图标删除'
+			colorIcon.value = '#000'
+			return
+		}
 		trashText.value = '松手即可删除'
+		colorIcon.value = '#ff0000'
 	}
 	defineExpose({
 		uploadImgEvent,
@@ -142,23 +184,26 @@
 		longpressEvent,
 		uploadImgBoxMousemove,
 		uploadImgBoxTouchend,
-		touchstartTrash
+		touchstartTrash,
+		touchendEvent
 	})
 </script>
 
 <style lang="scss" scoped>
-	.show{
+	.show {
 		display: none !important;
 	}
+
 	.prop {
+
 		position: absolute;
-		width: 150px;
+		width: 120px;
 		bottom: 0;
 		left: 50%;
 		transform: translateX(-50%);
 		border-radius: 50%;
-		height: 150px;
-		background-color: rgba(0, 0, 0, 0.2);
+		height: 120px;
+		background-color: rgba(0, 0, 0, 0.3);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -174,9 +219,10 @@
 
 	.imgAnimation {
 		position: absolute;
-		transform: scale(0.95);
+		transform: scale(0.85);
 		// transition-duration:0.01s;
 		background-color: pink;
+		opacity: 0.8;
 		// transform: translateX();
 	}
 

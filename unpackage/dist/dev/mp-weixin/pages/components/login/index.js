@@ -93,5 +93,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     h: common_vendor.o((...args) => $options.loginwx && $options.loginwx(...args))
   };
 }
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-f9c7640e"], ["__file", "D:/ypgz/template/templatevuePlus/pages/components/login/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-f9c7640e"], ["__file", "D:/ypgz/template/templeteP/pages/components/login/index.vue"]]);
 wx.createPage(MiniProgramPage);

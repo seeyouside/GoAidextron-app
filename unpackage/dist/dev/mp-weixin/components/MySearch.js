@@ -49,5 +49,5 @@ const _sfc_main = {
     };
   }
 };
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-e50ea3f3"], ["__file", "D:/ypgz/template/templatevuePlus/components/MySearch.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-e50ea3f3"], ["__file", "D:/ypgz/template/templeteP/components/MySearch.vue"]]);
 wx.createComponent(Component);

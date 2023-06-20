@@ -44,5 +44,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-b0e224f3"], ["__file", "D:/ypgz/template/templatevuePlus/pages/components/login/sendPages.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-b0e224f3"], ["__file", "D:/ypgz/template/templeteP/pages/components/login/sendPages.vue"]]);
 wx.createPage(MiniProgramPage);

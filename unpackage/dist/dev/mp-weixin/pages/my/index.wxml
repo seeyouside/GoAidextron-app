@@ -1,1 +1,1 @@
-<view class="content"><my-search wx:if="{{c}}" bindaddressClick="{{a}}" bindsearchClick="{{b}}" u-i="60704e8e-0" bind:__l="__l" u-p="{{c}}"></my-search></view>
+<view class="content"><my-search wx:if="{{c}}" bindaddressClick="{{a}}" bindsearchClick="{{b}}" u-i="55f7d17c-0" bind:__l="__l" u-p="{{c}}"></my-search></view>

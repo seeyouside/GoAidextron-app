@@ -28,13 +28,13 @@
 }
 .prop.data-v-f7544660 {
   position: absolute;
-  width: 150px;
+  width: 120px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  height: 150px;
-  background-color: rgba(0, 0, 0, 0.2);
+  height: 120px;
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,8 +48,9 @@
 }
 .imgAnimation.data-v-f7544660 {
   position: absolute;
-  transform: scale(0.95);
+  transform: scale(0.85);
   background-color: pink;
+  opacity: 0.8;
 }
 .item.data-v-f7544660 {
   border-radius: 10rpx;

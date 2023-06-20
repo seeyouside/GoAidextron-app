@@ -24,7 +24,14 @@
 </template>
 
 <script setup>
-	
+	setTimeout(() => {
+		uni.switchTab({
+			url:'../index/index',
+			fail:(res)=> {
+				console.log(res);
+			}
+		})
+	}, 3000)
 </script>
 
 <style lang='scss' scoped>
@@ -102,7 +109,7 @@
 			;
 			height: 16rpx;
 			border-radius: 8rpx;
-			animation: identifier 3s linear infinite;
+			animation: identifier 3s linear;
 		}
 
 		@keyframes identifier {
@@ -120,7 +127,7 @@
 			position: absolute;
 			top: -40rpx;
 			background-color: #fff;
-			animation:  autoroatation 1s  steps(100) infinite,autoroatation1 3s steps(200)  infinite;
+			animation:  autoroatation 1s  steps(100) infinite,autoroatation1 3s steps(200);
 			@keyframes autoroatation {
 				0%{
 					transform: rotate(0deg);

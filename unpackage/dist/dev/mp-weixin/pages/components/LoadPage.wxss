@@ -1,0 +1,188 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+@keyframes moveUp-70b07b7c {
+100% {
+    transform: translateY(-100vh);
+}
+}
+.box1.data-v-70b07b7c {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  box-shadow: 2vw 1vh #fff,26vw 18vh #fff,34vw 18vh #fff,99vw 50vh #fff,63vw 24vh #fff,99vw 63vh #fff,39vw 65vh #fff,11vw 57vh #fff,20vw 78vh #fff,95vw 22vh #fff,8vw 87vh #fff,23vw 96vh #fff,22vw 92vh #fff,34vw 49vh #fff,27vw 35vh #fff,65vw 42vh #fff,88vw 23vh #fff,68vw 28vh #fff,6vw 47vh #fff,73vw 38vh #fff,66vw 81vh #fff,22vw 14vh #fff,79vw 82vh #fff,59vw 14vh #fff,26vw 43vh #fff,64vw 41vh #fff,81vw 84vh #fff,61vw 40vh #fff,78vw 70vh #fff,25vw 22vh #fff,80vw 87vh #fff,40vw 40vh #fff,63vw 9vh #fff,5vw 100vh #fff,50vw 52vh #fff,98vw 12vh #fff,46vw 71vh #fff,58vw 100vh #fff,34vw 85vh #fff,26vw 91vh #fff,62vw 78vh #fff,66vw 58vh #fff,32vw 91vh #fff,55vw 76vh #fff,6vw 38vh #fff,71vw 86vh #fff,93vw 45vh #fff,26vw 86vh #fff,48vw 94vh #fff,14vw 82vh #fff,1vw 21vh #fff,71vw 50vh #fff,97vw 96vh #fff,68vw 12vh #fff,26vw 47vh #fff,91vw 22vh #fff,51vw 79vh #fff,99vw 80vh #fff,47vw 30vh #fff,93vw 27vh #fff,67vw 28vh #fff,84vw 66vh #fff,30vw 65vh #fff,77vw 2vh #fff,1vw 98vh #fff,26vw 94vh #fff,86vw 76vh #fff,30vw 78vh #fff,31vw 2vh #fff,65vw 73vh #fff,89vw 11vh #fff,7vw 100vh #fff,64vw 96vh #fff,75vw 18vh #fff,2vw 50vh #fff,6vw 92vh #fff,38vw 58vh #fff,79vw 40vh #fff,70vw 8vh #fff,89vw 45vh #fff,28vw 1vh #fff,53vw 93vh #fff,55vw 51vh #fff,31vw 25vh #fff,22vw 60vh #fff,50vw 22vh #fff,69vw 55vh #fff,80vw 7vh #fff,68vw 82vh #fff,99vw 78vh #fff,89vw 69vh #fff,15vw 60vh #fff,14vw 47vh #fff,32vw 85vh #fff,58vw 63vh #fff,89vw 9vh #fff,42vw 84vh #fff,1vw 36vh #fff,97vw 34vh #fff,50vw 30vh #fff;
+  animation: moveUp-70b07b7c 200s linear infinite;
+}
+.box1.data-v-70b07b7c::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  top: 100vh;
+  border-radius: inherit;
+  box-shadow: inherit;
+}
+.box2.data-v-70b07b7c {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  box-shadow: 1vw 1vh #fff,93vw 42vh #fff,21vw 38vh #fff,5vw 64vh #fff,43vw 73vh #fff,6vw 51vh #fff,92vw 21vh #fff,51vw 40vh #fff,70vw 73vh #fff,91vw 84vh #fff,97vw 45vh #fff,67vw 65vh #fff,1vw 55vh #fff,48vw 67vh #fff,82vw 18vh #fff,99vw 58vh #fff,51vw 62vh #fff,53vw 41vh #fff,38vw 35vh #fff,45vw 18vh #fff,55vw 57vh #fff,17vw 8vh #fff,51vw 86vh #fff,84vw 38vh #fff,55vw 37vh #fff,20vw 48vh #fff,58vw 80vh #fff,55vw 24vh #fff,53vw 93vh #fff,1vw 16vh #fff,73vw 72vh #fff,22vw 94vh #fff,83vw 38vh #fff,45vw 80vh #fff,52vw 60vh #fff,61vw 49vh #fff,7vw 21vh #fff,63vw 28vh #fff,16vw 47vh #fff,22vw 33vh #fff,43vw 26vh #fff,5vw 66vh #fff,78vw 59vh #fff,40vw 32vh #fff,10vw 72vh #fff,12vw 38vh #fff,30vw 50vh #fff,85vw 99vh #fff,11vw 69vh #fff,77vw 71vh #fff,11vw 93vh #fff,30vw 9vh #fff,66vw 61vh #fff,20vw 50vh #fff,54vw 30vh #fff,30vw 17vh #fff,22vw 79vh #fff,37vw 39vh #fff,46vw 32vh #fff,60vw 72vh #fff,14vw 34vh #fff,67vw 10vh #fff,16vw 78vh #fff,89vw 45vh #fff,84vw 43vh #fff,11vw 33vh #fff,75vw 66vh #fff,94vw 66vh #fff,30vw 82vh #fff,11vw 58vh #fff,22vw 37vh #fff,95vw 70vh #fff,8vw 63vh #fff,99vw 89vh #fff,93vw 28vh #fff,28vw 40vh #fff,49vw 30vh #fff,8vw 95vh #fff,2vw 90vh #fff,96vw 16vh #fff,8vw 39vh #fff,96vw 100vh #fff,5vw 31vh #fff,100vw 75vh #fff,44vw 12vh #fff,36vw 75vh #fff,6vw 89vh #fff,41vw 58vh #fff,35vw 1vh #fff,96vw 36vh #fff,34vw 81vh #fff,50vw 39vh #fff,91vw 21vh #fff,30vw 94vh #fff,67vw 74vh #fff,80vw 32vh #fff,80vw 35vh #fff,25vw 76vh #fff,17vw 58vh #fff,62vw 97vh #fff;
+  animation: moveUp-70b07b7c 100s linear infinite;
+}
+.box2.data-v-70b07b7c::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  top: 100vh;
+  border-radius: inherit;
+  box-shadow: inherit;
+}
+.box3.data-v-70b07b7c {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  box-shadow: 1vw 1vh #fff,6vw 81vh #fff,76vw 7vh #fff,5vw 12vh #fff,65vw 17vh #fff,12vw 34vh #fff,51vw 78vh #fff,46vw 18vh #fff,66vw 40vh #fff,82vw 19vh #fff,52vw 99vh #fff,80vw 22vh #fff,48vw 82vh #fff,12vw 59vh #fff,12vw 49vh #fff,38vw 57vh #fff,89vw 43vh #fff,3vw 4vh #fff,80vw 77vh #fff,20vw 75vh #fff,1vw 70vh #fff,38vw 38vh #fff,90vw 39vh #fff,91vw 25vh #fff,70vw 36vh #fff,2vw 12vh #fff,28vw 13vh #fff,77vw 23vh #fff,7vw 55vh #fff,40vw 76vh #fff,48vw 83vh #fff,66vw 20vh #fff,41vw 96vh #fff,73vw 34vh #fff,11vw 87vh #fff,100vw 38vh #fff,6vw 52vh #fff,26vw 31vh #fff,59vw 47vh #fff,75vw 95vh #fff,27vw 5vh #fff,3vw 18vh #fff,95vw 27vh #fff,68vw 17vh #fff,13vw 43vh #fff,63vw 42vh #fff,68vw 16vh #fff,27vw 46vh #fff,66vw 19vh #fff,94vw 4vh #fff,14vw 66vh #fff,73vw 6vh #fff,59vw 84vh #fff,60vw 87vh #fff,69vw 77vh #fff,73vw 20vh #fff,76vw 97vh #fff,94vw 76vh #fff,93vw 76vh #fff,30vw 64vh #fff,93vw 65vh #fff,18vw 53vh #fff,23vw 45vh #fff,52vw 38vh #fff,91vw 88vh #fff,10vw 94vh #fff,82vw 9vh #fff,34vw 87vh #fff,6vw 84vh #fff,94vw 74vh #fff,37vw 57vh #fff,27vw 17vh #fff,53vw 95vh #fff,36vw 72vh #fff,56vw 74vh #fff,95vw 20vh #fff,68vw 71vh #fff,12vw 24vh #fff,87vw 5vh #fff,47vw 85vh #fff,24vw 35vh #fff,74vw 39vh #fff,23vw 33vh #fff,95vw 75vh #fff,51vw 18vh #fff,48vw 49vh #fff,25vw 42vh #fff,5vw 67vh #fff,50vw 80vh #fff,15vw 6vh #fff,18vw 82vh #fff,40vw 75vh #fff,38vw 80vh #fff,95vw 58vh #fff,52vw 51vh #fff,94vw 30vh #fff,26vw 18vh #fff,97vw 51vh #fff,42vw 61vh #fff,93vw 3vh #fff;
+  animation: moveUp-70b07b7c 50s linear infinite;
+}
+.box3.data-v-70b07b7c::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  top: 100vh;
+  border-radius: inherit;
+  box-shadow: inherit;
+}
+.content.data-v-70b07b7c {
+  /* position: relative;
+   */
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  border-top: 1PX solid #000;
+  /* .imgBox {
+  	margin-top: 300px;
+  	position: relative;
+  	width: 200px;
+  	height: 100px;
+  	background: url('https://img-blog.csdnimg.cn/20201228154517188.png#pic_center') no-repeat;
+
+  	animation: x 1.5s steps(8) infinite, m 3s forwards;
+
+  	@keyframes x {
+
+
+  		0% {
+  			background-position: 0 0;
+  		}
+
+  		100% {
+  			background-position: -1600px 0;
+  		}
+  	}
+
+
+  	@keyframes m {
+  		0% {
+  			left: 0;
+  		}
+
+  		100% {
+  			left: 100%;
+  			margin-left: -100px;
+  			transform: translate(-100%);
+  		}
+  	}
+
+  } */
+}
+.content .progressBarBox.data-v-70b07b7c {
+  position: relative;
+  margin: 70% 0 0 50%;
+  transform: translateX(-50%);
+  width: 380rpx;
+  height: 16rpx;
+  /* overflow: hidden; */
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+.content .progressBar.data-v-70b07b7c {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, skyBlue, pink);
+  height: 16rpx;
+  border-radius: 8rpx;
+  animation: identifier-70b07b7c 3s linear;
+}
+@keyframes identifier-70b07b7c {
+0% {
+    width: 0rpx;
+}
+100% {
+    width: 380rpx;
+}
+}
+.content .imgBox.data-v-70b07b7c {
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: -40rpx;
+  background-color: #fff;
+  animation: autoroatation-70b07b7c 1s steps(100) infinite,autoroatation1-70b07b7c 3s steps(200);
+}
+@keyframes autoroatation-70b07b7c {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+@keyframes autoroatation1-70b07b7c {
+0% {
+    left: 0;
+}
+100% {
+    left: 100%;
+    transform: translateX(-50%);
+}
+}

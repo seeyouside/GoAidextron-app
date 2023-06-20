@@ -23,12 +23,23 @@ const _sfc_main = {
   },
   setup(__props, { expose }) {
     const props = __props;
+    let _this = common_vendor.getCurrentInstance();
+    let propData = null;
+    let getPropety = () => {
+      const query = common_vendor.index.createSelectorQuery().in(_this);
+      query.select(".prop").boundingClientRect((data) => {
+        let newdata = JSON.parse(JSON.stringify(data));
+        console.log(newdata);
+        propData = newdata;
+      }).exec();
+    };
     let isainmtion = common_vendor.ref(false);
     let longressIndex = common_vendor.ref();
     function longpressEvent(index) {
       longressIndex.value = index;
       isainmtion.value = !isainmtion.value;
       console.log(longressIndex, "isainmtion", isainmtion.value);
+      getPropety();
     }
     let imageArr = common_vendor.reactive(["../static/logo.png"]);
     async function uploadImgEvent() {
@@ -72,8 +83,26 @@ const _sfc_main = {
     const maxH = common_vendor.ref();
     const isShopBgc = common_vendor.ref(false);
     const uploadImgBoxMousemove = (e) => {
+      if (!propData) {
+        return;
+      }
       maxW.value = e.changedTouches[0].pageX - 40 + "px";
       maxH.value = e.changedTouches[0].pageY - 40 + "px";
+      if (e.changedTouches[0].pageX - 40 > propData.left && e.changedTouches[0].pageY > propData.top && (e.changedTouches[0].pageX - 40 < propData.right && e.changedTouches[0].pageY < propData.bottom)) {
+        touchstartTrash();
+      } else {
+        touchstartTrash(1);
+      }
+    };
+    const touchendEvent = (e) => {
+      if (!propData) {
+        return;
+      }
+      if (e.changedTouches[0].pageX - 40 > propData.left && e.changedTouches[0].pageY > propData.top && (e.changedTouches[0].pageX - 40 < propData.right && e.changedTouches[0].pageY < propData.bottom)) {
+        deleteImg();
+      }
+      isainmtion.value = false;
+      isShopBgc.value = false;
     };
     const uploadImgBoxClick = (e) => {
       maxW.value = e.changedTouches[0].pageX - 40 + "px";
@@ -84,9 +113,15 @@ const _sfc_main = {
       isShopBgc.value = false;
     };
     let trashText = common_vendor.ref("拖入图标删除");
+    let colorIcon = common_vendor.ref("#000");
     const touchstartTrash = (e) => {
-      console.log("touchstartTrash", e);
+      if (e == 1) {
+        trashText.value = "拖入图标删除";
+        colorIcon.value = "#000";
+        return;
+      }
       trashText.value = "松手即可删除";
+      colorIcon.value = "#ff0000";
     };
     expose({
       uploadImgEvent,
@@ -94,36 +129,39 @@ const _sfc_main = {
       longpressEvent,
       uploadImgBoxMousemove,
       uploadImgBoxTouchend,
-      touchstartTrash
+      touchstartTrash,
+      touchendEvent
     });
     return (_ctx, _cache) => {
-      return {
+      return common_vendor.e({
         a: common_vendor.f(common_vendor.unref(imageArr), (item, index, i0) => {
           return {
             a: item,
-            b: common_vendor.o(($event) => common_vendor.isRef(isainmtion) ? isainmtion.value = false : isainmtion = false, index),
+            b: common_vendor.o(uploadImgBoxMousemove, index),
             c: common_vendor.o(($event) => longpressEvent(index), index),
-            d: common_vendor.n(common_vendor.unref(longressIndex) == index && common_vendor.unref(isainmtion) ? "imgAnimation" : ""),
-            e: index,
-            f: common_vendor.o(uploadImgEvent, index)
+            d: common_vendor.o(touchendEvent, index),
+            e: common_vendor.n(common_vendor.unref(longressIndex) == index && common_vendor.unref(isainmtion) ? "imgAnimation" : ""),
+            f: index,
+            g: common_vendor.o(uploadImgEvent, index)
           };
         }),
         b: maxH.value,
         c: maxW.value,
-        d: common_vendor.p({
+        d: common_vendor.unref(isainmtion)
+      }, common_vendor.unref(isainmtion) ? {} : {}, {
+        e: common_vendor.p({
           name: "trash-fill",
-          color: "#ff0000",
+          color: common_vendor.unref(colorIcon),
           size: "36"
         }),
-        e: common_vendor.t(common_vendor.unref(trashText)),
-        f: common_vendor.n(isShopBgc.value ? "" : "show"),
-        g: common_vendor.o(touchstartTrash),
-        h: common_vendor.o(uploadImgBoxMousemove),
+        f: common_vendor.t(common_vendor.unref(trashText)),
+        g: common_vendor.n(isShopBgc.value ? "" : "show"),
+        h: common_vendor.o(touchstartTrash),
         i: common_vendor.o(uploadImgBoxTouchend),
         j: common_vendor.o(uploadImgBoxClick)
-      };
+      });
     };
   }
 };
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-f7544660"], ["__file", "D:/ypgz/template/templatevuePlus/components/MyUploadImg.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-f7544660"], ["__file", "D:/ypgz/template/templeteP/components/MyUploadImg.vue"]]);
 wx.createComponent(Component);

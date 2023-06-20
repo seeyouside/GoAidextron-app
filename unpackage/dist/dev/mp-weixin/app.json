@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/components/LoadPage",
     "pages/index/index",
     "pages/components/login/index",
     "pages/components/login/sendPages",

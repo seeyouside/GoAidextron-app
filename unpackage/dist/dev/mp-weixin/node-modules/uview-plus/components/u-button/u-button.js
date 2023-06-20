@@ -189,5 +189,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     F: common_vendor.n($options.bemClass)
   });
 }
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-461e713c"], ["__file", "D:/ypgz/template/templatevuePlus/node_modules/uview-plus/components/u-button/u-button.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-461e713c"], ["__file", "D:/ypgz/template/templeteP/node_modules/uview-plus/components/u-button/u-button.vue"]]);
 wx.createComponent(Component);

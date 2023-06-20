@@ -35,12 +35,12 @@ const _sfc_main = {
           leftTitle: "首页"
         }),
         b: common_vendor.p({
-          numberData: "9"
+          numberData: 9
         }),
         c: common_vendor.o(login)
       };
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/ypgz/template/templatevuePlus/pages/index/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/ypgz/template/templeteP/pages/index/index.vue"]]);
 wx.createPage(MiniProgramPage);

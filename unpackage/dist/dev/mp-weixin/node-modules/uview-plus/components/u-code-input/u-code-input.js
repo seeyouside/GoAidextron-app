@@ -118,5 +118,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     k: common_vendor.o(($event) => $data.isFocus = false)
   };
 }
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-cff11be3"], ["__file", "D:/ypgz/template/templatevuePlus/node_modules/uview-plus/components/u-code-input/u-code-input.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-cff11be3"], ["__file", "D:/ypgz/template/templeteP/node_modules/uview-plus/components/u-code-input/u-code-input.vue"]]);
 wx.createComponent(Component);
