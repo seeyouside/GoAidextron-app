@@ -1,85 +1,76 @@
 <template>
 	<view class="content">
-		<view class="date item">
-			<view class="tit">选择日期</view>
-			<picker class="picker date" mode="date" :value="date" :start="startDate" :end="endDate"
-				@change="bindDateChange">
-				<view>{{ date }}</view>
-			</picker>
-			
-			<!-- - -->
-			<!-- <picker class="picker" mode="time" :value="timeEnd" start="09:01" end="21:01" @change="bindTimeEnd">
-				<view class="uni-input">{{ timeEnd }}</view>
-			</picker> -->
-		</view>
-		<view class="time item">
-			<view class="tit">选择时间</view>
-			<picker class="picker" mode="time" :value="timeStart" start="09:01" end="21:01" @change="bindTimeStart">
-				<view class="uni-input">{{ timeStart }}</view>
-			</picker>
-		</view>
+
 	</view>
 </template>
 
 <script>
 	export default {
-		data() {
-			const currentDate = this.getDate({
-				format: true
-			});
-			return {
-				date: currentDate,
-				timeStart: '14:00',
-				timeEnd: '16:00',
-				startDate:this.getDate('start'),
-				endDate: this.getDate('end')
-			};
-		},
-		props: {
-			startDate: {
-				type: String,
-			}
-		},
-		methods: {
-			// 选择时间 日期
-			bindDateChange: function(e) {
-				this.date = e.target.value;
-			},
-			getDate(type) {
-				const date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth() + 1;
-				let day = date.getDate();
+	  data() {
+	    return {};
+	  },
+	  props: {
+	    // 所有列选项数据
+	    columns: {
+	      type: Array,
+	      default: () => []
+	    },
+	    // 每一列默认选中值数组，不传默认选中第一项
+	    selectVals: {
+	      type: Array,
+	      default: () => []
+	    }
+	  },
+	  computed: {
+	    // 每一列选中项的索引，当默认选中值变化的时候这个值也要变化
+	    indexArr: {
+	      // 多维数组，深度监听
+	      cache: false,
+	      get() {
+	        if (this.selectVals.length > 0) {
+	          return this.columns.map((col, cIdx) => {
+	            return col.findIndex((i) => i == this.selectVals[cIdx]);
+	          });
+	        } else {
+	          return [].fill(0, 0, this.columns.length);
+	        }
+	      }
+	    }
+	  },
+	  methods: {
+	    onChange(e) {
+	      const { value } = e.detail;
+	
+	      let ret = this.columns.map((item, index) => {
+	        let idx = value[index];
+	        if (idx < 0) {
+	          idx = 0;
+	        }
+	        if (idx > item.length - 1) {
+	          idx = item.length - 1;
+	        }
+	        return item[idx];
+	      });
+	
+	      this.$emit('onChange', {
+	        value: ret
+	      });
+	    }
+	  }
+	};
 
-				if (type === 'start') {
-					// 开始时间往现在时间前取 20 年
-					year = year - 20;
-				} else if (type === 'end') {
-					// 结束时间往现在时间后取 2 年
-					year = year + 2;
-				}
-				month = month > 9 ? month : '0' + month;
-				day = day > 9 ? day : '0' + day;
-				return `${year}-${month}-${day}`;
-			},
-			// 开始时间
-			bindTimeStart: function(e) {
-				this.timeStart = e.target.value;
-			},
-			// 结束时间
-			bindTimeEnd: function(e) {
-				this.timeEnd = e.target.value;
-			},
-		}
-	}
 </script>
 
 <style lang="scss" scoped>
-	.item{
-		height: 88rpx;
-		display: flex;
-		padding: 0 16rpx;
-		justify-content: space-between;
-		align-items: center;
+	.picker-view {
+	  height: 356rpx;
 	}
+	
+	.picker-view-column {
+	  font-size: 14px;
+	  line-height: 34px;
+	  text-align: center;
+	  color: #333;
+	}
+
 </style>
